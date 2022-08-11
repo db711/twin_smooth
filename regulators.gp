@@ -12,7 +12,7 @@ regulators_file(input,output) =
 	fileread(m); \\skips first line
 	while(d=eval(fileread(m)),
 		if((d%4)!=1,d=4*d);
-		if(d>10^10,
+		if(d<10^10,
 			filewrite1(n,d);filewrite1(n," ");filewrite(n,quadregulator(d)),
 		\\else
 			filewrite1(n,d);filewrite1(n," ");filewrite(n,quadclassunit(d)[4])
@@ -45,7 +45,7 @@ stormer_regulators(B,N,file) =
 			foreach(D,p,d=d*p);
 			if((d%4)!=1,d=4*d);
 				if(N!=-1&&d>N,,
-					if(d>10^10,
+					if(d<10^10,
 					filewrite1(n,d);filewrite1(n," ");filewrite(n,quadregulator(d)),
 				\\else
 					filewrite1(n,d);filewrite1(n," ");filewrite(n,quadclassunit(d)[4])
