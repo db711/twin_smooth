@@ -1,5 +1,5 @@
 import itertools
-#import quadratic_orders
+import quadratic_orders
 
 def stormer(B: int, b: int = -1):
     """
@@ -17,7 +17,7 @@ def stormer(B: int, b: int = -1):
         I = set(range(1, S[-1] + 2))
         i = 1
         while(i in I):
-            if(is_smooth(y, B)): 
+            if(is_smooth(y, B)): # this isn't great
                 if(is_odd(x)): T.add((x-1)//2) 
                 #if(is_odd(x)): T[(x-1)//2] = d 
             else:
@@ -101,8 +101,9 @@ def solve_special(x_0: int, y_0: int, o_0: int, d: int):
 
 def advance_special(x: int, y: int, x_0: int, y_0: int, j: int, d: int): 
     """
-    Advances a solution to the special Pell (x, y) equation by k steps.
-    Requires knowing the fundamental solution (x_9, y_0) to the special Pell equation.
+    Advances a solution (x, y) to the special Pell equation by k steps.
+    Requires knowing the fundamental solution (x_0, y_0) to the special Pell equation.
+    Uses a technique similar to exponentiation by squaring.
     """
     if(j < 0): return
     if(j == 0): return(x, y)
