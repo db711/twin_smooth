@@ -73,7 +73,7 @@ void twin_smooth(const string & input, const string & output, int B);
 
 int main()
 {
-    //twin_smooth("./input.txt", "./output.txt", 50);
+    //twin_smooth("./input.txt", "./output.txt", B);
     return 0;
 }
 
