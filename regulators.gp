@@ -25,7 +25,6 @@ regulators_file(input,output) =
 }
 
 
-
 /*
 ** Computes the regulators for all maximal orders in the real quadratic number field
 ** Q(sqrt(d)), where d is squarefree and from the set 
@@ -33,7 +32,6 @@ regulators_file(input,output) =
 ** Writes the discriminants and regulators to a file and returns the time it took in seconds.
 ** Setting N = -1 is treated as N = inf.
 **/
-
 stormer_regulators(B,N,file) =
 {
 	local(S=primes(primepi(B)),d=1,D,n=fileopen(file,w),start=getwalltime);
