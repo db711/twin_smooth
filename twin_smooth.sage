@@ -38,9 +38,9 @@ def stormer_discriminants(B):
     in ascending order.
     """
     S = prime_range(B+1)
-    numbers = list(S)
-    indices = [0] * len(S)
-    R = [2]
+    numbers = list(S) # numbers[i] holds the smallest multiple of S[i] not returned yet
+    indices = [0] * len(S) # indices[i] holds the index i, such that numbers[i] = S[i]*R[i]
+    R = [2] # list of returned numbers
     numbers[0] = 6
     indices[0] = 2
     yield(2)
@@ -50,15 +50,15 @@ def stormer_discriminants(B):
         for i in range(len(S)):
             if(numbers[i] == n):
                 j = indices[i]
-                while(j < len(R) and R[j]%S[i] == 0): j += 1
-                if(j < len(R)):
+                while(j < len(R) and R[j]%S[i] == 0): j += 1 # searches for the next smallest multiple of S[i], that is of the required form
+                if(j < len(R)): # such a multiple of S[i] still exists
                     numbers[i] = R[j]*S[i]
                     indices[i] = j + 1
-                    if(i == len(S) - 1):
-                        R = R[indices[-1]:]
+                    if(i == len(S) - 1): # update R on on min of indices changing
+                        R = R[indices[-1]:] # full list R does not have to be stored, only the min of indices
                         for k in range(len(S)):
-                            indices[k] -= indices[-1]
-                else: numbers[i] = float("inf")
+                            indices[k] -= indices[-1] # shift indices accordingly
+                else: numbers[i] = float("inf") # such a multiple of S[i] does not exist, all multiples of S[i] have already been returned
         yield(n)
         
 def random_stormer_discriminant(B, n):
