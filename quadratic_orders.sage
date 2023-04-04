@@ -423,8 +423,7 @@ class Ideal:
         k = (int(numpy.sqrt(self.O.d)) - P)//Q_
         P_ = k*Q_ + P
         if gen and j != 0:
-            sigma = sign(Q)
-            B_0, B_1 = abs(C_0), sigma*abs(C_1)
+            B_0, B_1 = abs(C_0), abs(C_1)
         if(P_ + int(sqrt(self.O.d)) >= Q_):
             #print("j = 1")
             if gen: return(Ideal(self.O, Q_, P_), (S*(Q*B_0 + P*B_1), -S*B_1, Q))
@@ -442,6 +441,7 @@ class Ideal:
                 B_0, B_1 = swap, q*B_1 + B_0
         if(P_ + int(numpy.sqrt(self.O.d)) >= Q_):
             #print("j = 2")
+            B_1 *= sign(Q)
             if gen:
                 return(Ideal(self.O, Q_, P_), (S*(Q*B_0 + P*B_1), -S*B_1, Q))
             else: return Ideal(self.O, Q_, P_)
