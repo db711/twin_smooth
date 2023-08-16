@@ -3,7 +3,7 @@ Algorithms related to the computation of twin smooth integers.
 
 This code was produced as part of my Master Thesis "Finding consecutive smooth integers by solving the Pell equation" in 2022.
 
-I am currently working on an improved version of this (both from a mathematical and a programming standpoint) written entirely in PARI/GP, which will be released soon. This will also include more mathematical background on the methods used.
+An improved version of this can be found (here)[https://github.com/db711/infrastructure].
 
 # How to use
 - The `*.sage` files require [sagemath](https://www.sagemath.org/) to be run.
